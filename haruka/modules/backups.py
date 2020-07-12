@@ -689,13 +689,13 @@ def export_data(bot: Bot, update: Update, chat_data):
 		bot.sendMessage(TEMPORARY_DATA, "*Successfully backed up for:*\nChat Name: `{}`\nChat ID: `{}`\nOn: `{}`".format(chat.title, chat_id, tgl), parse_mode=ParseMode.MARKDOWN)
 	except BadRequest:
 		pass
-	send = bot.sendDocument(current_chat_id, document=open('{}-Kanna.backup'.format(chat_id), 'rb'), caption=tld(update.effective_message, "*Successfully backed up for:*\nChat Name: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This backup is specific to this bot.").format(chat.title, chat_id, tgl), timeout=360, reply_to_message_id=msg.message_id, parse_mode=ParseMode.MARKDOWN)
+	send = bot.sendDocument(current_chat_id, document=open('{}-bot.backup'.format(chat_id), 'rb'), caption=tld(update.effective_message, "*Successfully backed up for:*\nChat Name: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This backup is specific to this bot.").format(chat.title, chat_id, tgl), timeout=360, reply_to_message_id=msg.message_id, parse_mode=ParseMode.MARKDOWN)
 	try:
 		# Send to temp data for prevent unexpected issue
 		bot.sendDocument(TEMPORARY_DATA, document=send.document.file_id, caption=tld(update.effective_message, "*Successfully backed up for:*\nChat Name: `{}`\nVhat ID: `{}`\nOn: `{}`\n\nNote: This backup is specific to this bo").format(chat.title, chat_id, tgl), timeout=360, parse_mode=ParseMode.MARKDOWN)
 	except BadRequest:
 		pass
-	os.remove("{}-Kanna.backup".format(chat_id)) # Cleaning file
+	os.remove("{}-bot.backup".format(chat_id)) # Cleaning file
 
 
 class SetEncoder(json.JSONEncoder):
