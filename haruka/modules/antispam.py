@@ -225,7 +225,8 @@ def ungban(bot: Bot, update: Update, args: List[str]):
 
     banner = update.effective_user  # type: Optional[User]
     
-    message.reply_text("I'll give {} a second chance, globally.".format(mention_html(user_chat.first_name, user_chat.id), parse_mode='HTML')
+    message.reply_text("I'll give {} a second chance, globally.".format(mention_html(user_chat.first_name, user_chat.id),
+                                                                        parse_mode='HTML')
     start_time = time.time()
     
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
