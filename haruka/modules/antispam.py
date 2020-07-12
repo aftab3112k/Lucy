@@ -126,9 +126,9 @@ def gban(bot: Bot, update: Update, args: List[str]):
     log_message += "#GBANNED" \
                    "\n<b>Bot Owner:</b> {}" \
                    "\n<b>Originated from:</b> {}" \
-                   "\n<b>Admin:</b> {}" \
-                   "\n<b>Banned User:</b> {}" \
-                   "\n<b>Banned User ID:</b> {}" \
+                   "\n<b>Sudo:</b> {}" \
+                   "\n<b>GBanned User:</b> {}" \
+                   "\n<b>GBanned User ID:</b> {}" \
                    "\n<b>Event Stamp:</b> {}".format(mention_html(owner.id, owner.first_name),
                                                      chat.id,
                                                      mention_html(user.id, user.first_name),
@@ -200,7 +200,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
         message.reply_text("Done! This gban affected {} chats, Took {} sec".format(gbanned_chats, gban_time))
 
     try:
-        bot.send_message(user_id, "You have been globally banned from all groups where I have administrative permissions. If you think that this was a mistake, you may appeal your ban here: @LucySupportChat", parse_mode=ParseMode.HTML)
+        bot.send_message(user_id, "You have been globally banned from all groups where I have administrative permissions. If you think that this was a mistake, you may appeal your ban here: @Aftabbinschat", parse_mode=ParseMode.HTML)
     except:
         pass # bot probably blocked by user
 
@@ -225,11 +225,11 @@ def ungban(bot: Bot, update: Update, args: List[str]):
 
     banner = update.effective_user  # type: Optional[User]
     
-    message.reply_text("I'll give {} a second chance, globally.".format(user_chat.first_name))
+    message.reply_text("I'll give {} a second chance, globally.".format(mention_html(user_chat.first_name, user_chat.id), parse_mode='HTML')
     start_time = time.time()
     
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
-                 "{} has ungbanned user {}".format(mention_html(banner.id, banner.first_name),
+                 "Sudo {} has ungbanned user {}".format(mention_html(banner.id, banner.first_name),
                                                    mention_html(user_chat.id, user_chat.first_name)),
                  html=True)
 
