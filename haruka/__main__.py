@@ -135,17 +135,16 @@ def send_start(bot, update):
         pass
 
     #chat = update.effective_chat  # type: Optional[Chat] and unused variable
-    text = "Hey there! My name is Lucy - I'm here to help you manage your groups!\n\
+    text = "Hey there! My name is Akeno - I'm here to help you manage your groups!\n\
 Click Help button to find out more about how to use me to my full potential.\n\n"
     
-    text += "Join [Support Group](https://Lucysupportchat) ( @LucySupportChat ) if you need any support or help\n\n\
-Follow [Lucy Updates](https://Lucysupportchat) ( @LucySupportChat ) if you want to keep up with the news, updates and bot downtime!\n\n\
-Made with love by @ItsAviral, @Okay\_retard and @Aniket02\n\nWant to add me to your group? [Click here!](t.me/Lucy_Robot?startgroup=true)"
+    text += "Join ( @Aftabbinschat ) if you need any support or help\n\n\
+Follow ( @Aftabbins ) if you want to keep up with the news, updates and bot downtime!\n\n\
+Made with love by @aftab3112\n\nWant to add me to your group? [Click here!](t.me/AkenoTheRobot?startgroup=true)"
     
-    keyboard = [[InlineKeyboardButton(text="📢 Support Group", url="https://t.me/LucySupportChat")]]
-    keyboard += [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M")]]
-    keyboard += [[InlineKeyboardButton(text="🇺🇸 Language", callback_data="set_lang_"), 
-        InlineKeyboardButton(text="❔ Help", callback_data="help_back")]]
+    keyboard = [[InlineKeyboardButton(text="Support Group", url="https://t.me/Aftabbinschat")]]
+    keyboard += [[InlineKeyboardButton(text="Language", callback_data="set_lang_"), 
+        InlineKeyboardButton(text="Help", callback_data="help_back")]]
 
     update.effective_message.reply_text(text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
